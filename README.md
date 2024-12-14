@@ -5,5 +5,5 @@
 
 ## 一键安装命令：
 ```shell
-curl -L https://raw.githubusercontent.com/Xun-X/nezha-v0/refs/heads/main/v0.sh -o nezha-v0.sh && chmod +x nezha-v0.sh && sudo ./nezha-v0.s
+curl -L https://raw.githubusercontent.com/Xun-X/nezha-v0/refs/heads/main/v0.sh -o nezha-v0.sh && chmod +x nezha-v0.sh && sudo ./nezha-v0.sh
 ```
