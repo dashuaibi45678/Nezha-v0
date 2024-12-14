@@ -122,20 +122,20 @@ pre_check() {
         GITHUB_URL=$CUSTOM_MIRROR
         Get_Docker_URL="get.docker.com"
         Get_Docker_Argu=" -s docker --mirror Aliyun"
-        Docker_IMG="registry.cn-shanghai.aliyuncs.com\/naibahq\/nezha-dashboard:v0.20.13"
+        Docker_IMG="registry.cn-shanghai.aliyuncs.com\/naibahq\/nezha-dashboard:v0.16.26"
     else
         if [ -z "$CN" ]; then
             GITHUB_RAW_URL="raw.githubusercontent.com/nezhahq/scripts/v0"
             GITHUB_URL="github.com"
             Get_Docker_URL="get.docker.com"
             Get_Docker_Argu=" "
-            Docker_IMG="ghcr.io\/naiba\/nezha-dashboard:v0.20.13"
+            Docker_IMG="ghcr.io\/naiba\/nezha-dashboard:v0.16.26"
         else
             GITHUB_RAW_URL="gitee.com/naibahq/scripts/raw/v0"
             GITHUB_URL="gitee.com"
             Get_Docker_URL="get.docker.com"
             Get_Docker_Argu=" -s docker --mirror Aliyun"
-            Docker_IMG="registry.cn-shanghai.aliyuncs.com\/naibahq\/nezha-dashboard:v0.20.13"
+            Docker_IMG="registry.cn-shanghai.aliyuncs.com\/naibahq\/nezha-dashboard:v0.16.26"
         fi
     fi
 }
@@ -367,7 +367,7 @@ install_agent() {
     #     echo "当前最新版本为： ${_version}"
     # fi
 
-    _version="v0.20.5"
+    _version="v0.16.11"
 
     # Nezha Monitoring Folder
     sudo mkdir -p $NZ_AGENT_PATH
@@ -584,10 +584,10 @@ restart_and_update_docker() {
 update_docker_compose_image() {
     yaml_file_path="${NZ_DASHBOARD_PATH}/docker-compose.yaml"
     if grep -q "registry.cn-shanghai.aliyuncs.com/naibahq/nezha-dashboard$" "$yaml_file_path"; then
-        sed -i 's|registry.cn-shanghai.aliyuncs.com/naibahq/nezha-dashboard$|registry.cn-shanghai.aliyuncs.com/naibahq/nezha-dashboard:v0.20.13|' "$yaml_file_path"
+        sed -i 's|registry.cn-shanghai.aliyuncs.com/naibahq/nezha-dashboard$|registry.cn-shanghai.aliyuncs.com/naibahq/nezha-dashboard:v0.16.26|' "$yaml_file_path"
     fi
     if grep -q "ghcr.io/naiba/nezha-dashboard$" "$yaml_file_path"; then
-        sed -i 's|ghcr.io/naiba/nezha-dashboard$|ghcr.io/naibahq/nezha-dashboard:v0.20.13|' "$yaml_file_path"
+        sed -i 's|ghcr.io/naiba/nezha-dashboard$|ghcr.io/naibahq/nezha-dashboard:v0.16.26|' "$yaml_file_path"
     fi
 }
 
@@ -603,7 +603,7 @@ restart_and_update_standalone() {
     #     _version=$(curl -m 10 -sL "https://gitee.com/api/v5/repos/naibahq/nezha/releases/latest" | awk -F '"' '{for(i=1;i<=NF;i++){if($i=="tag_name"){print $(i+2)}}}')
     # fi
 
-    _version="v0.20.13"
+    _version="v0.16.26"
 
     if [ -z "$_version" ]; then
         err "获取 Dashboard 版本号失败，请检查本机能否链接 https://api.github.com/repos/naiba/nezha/releases/latest"
