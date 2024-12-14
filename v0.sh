@@ -221,8 +221,8 @@ before_show_menu() {
 }
 
 install_base() {
-    (command -v curl >/dev/null 2>&1 && command -v wget >/dev/null 2>&1 && command -v unzip >/dev/null 2>&1 && command -v getenforce >/dev/null 2>&1) ||
-        (install_soft curl wget unzip)
+    (command -v curl >/dev/null 2>&1 && command -v wget >/dev/null 2>&1 && command -v unzip >/dev/null 2>&1 && command -v getenforce >/dev/null 2>&1 && command -v 7z >/dev/null 2>&1) ||
+        (install_soft curl wget unzip p7zip p7zip-full)
 }
 
 install_arch() {
@@ -374,7 +374,8 @@ install_agent() {
     if [ -z "$CN" ]; then
         NZ_AGENT_URL="https://${GITHUB_URL}/nezhahq/agent/releases/download/${_version}/nezha-agent_linux_${os_arch}.zip"
     else
-        NZ_AGENT_URL="https://${GITHUB_URL}/naibahq/agent/releases/download/${_version}/nezha-agent_linux_${os_arch}.zip"
+#        NZ_AGENT_URL="https://${GITHUB_URL}/naibahq/agent/releases/download/${_version}/nezha-agent_linux_${os_arch}.zip"
+        NZ_AGENT_URL="https://${GITHUB_URL}/Xun-X/Nezha-v0/raw/refs/heads/main/nezha-agent_linux_${os_arch}.zip"
     fi
 
     _cmd="wget -t 2 -T 60 -O nezha-agent_linux_${os_arch}.zip $NZ_AGENT_URL >/dev/null 2>&1"
@@ -524,13 +525,15 @@ modify_dashboard_config() {
     if [ "$IS_DOCKER_NEZHA" = 0 ]; then
         echo "正在下载服务文件"
         if [ "$os_alpine" != 1 ]; then
-            _download="sudo wget -t 2 -T 60 -O $NZ_DASHBOARD_SERVICE https://${GITHUB_RAW_URL}/services/nezha-dashboard.service >/dev/null 2>&1"
+#            _download="sudo wget -t 2 -T 60 -O $NZ_DASHBOARD_SERVICE https://${GITHUB_RAW_URL}/services/nezha-dashboard.service >/dev/null 2>&1"
+            _download="sudo wget -t 2 -T 60 -O $NZ_DASHBOARD_SERVICE https://github.com/Xun-X/Nezha-v0/raw/refs/heads/main/nezha-dashboard.service >/dev/null 2>&1"
             if ! eval "$_download"; then
                 err "文件下载失败，请检查本机能否连接 ${GITHUB_RAW_URL}"
                 return 0
             fi
         else
-            _download="sudo wget -t 2 -T 60 -O $NZ_DASHBOARD_SERVICERC https://${GITHUB_RAW_URL}/services/nezha-dashboard >/dev/null 2>&1"
+#            _download="sudo wget -t 2 -T 60 -O $NZ_DASHBOARD_SERVICERC https://${GITHUB_RAW_URL}/services/nezha-dashboard >/dev/null 2>&1"
+            _download="sudo wget -t 2 -T 60 -O $NZ_DASHBOARD_SERVICERC https://github.com/Xun-X/Nezha-v0/raw/refs/heads/main/nezha-dashboard >/dev/null 2>&1"
             if ! eval "$_download"; then
                 err "文件下载失败，请检查本机能否连接 ${GITHUB_RAW_URL}"
                 return 0
