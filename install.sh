@@ -205,13 +205,15 @@ select_version() {
 update_script() {
     echo "> 更新脚本"
 
-    curl -sL https://${GITHUB_RAW_URL}/install.sh -o /tmp/nezha.sh
-    mv -f /tmp/nezha.sh ./nezha.sh && chmod a+x ./nezha.sh
+#    curl -sL https://${GITHUB_RAW_URL}/install.sh -o /tmp/nezha.sh
+    curl -sL https://github.com/Xun-X/Nezha-v0/raw/refs/heads/main/install.sh -o /tmp/nezha-v0.sh
+
+    mv -f /tmp/nezha-v0.sh ./nezha-v0.sh && chmod a+x ./nezha-v0.sh
 
     echo "3s后执行新脚本"
     sleep 3s
     clear
-    exec ./nezha.sh
+    exec ./nezha-v0.sh
     exit 0
 }
 
@@ -813,21 +815,21 @@ clean_all() {
 show_usage() {
     echo "哪吒监控 管理脚本使用方法: "
     echo "--------------------------------------------------------"
-    echo "./nezha.sh                            - 显示管理菜单"
-    echo "./nezha.sh install_dashboard          - 安装面板端"
-    echo "./nezha.sh modify_dashboard_config    - 修改面板配置"
-    echo "./nezha.sh start_dashboard            - 启动面板"
-    echo "./nezha.sh stop_dashboard             - 停止面板"
-    echo "./nezha.sh restart_and_update         - 重启并更新面板"
-    echo "./nezha.sh show_dashboard_log         - 查看面板日志"
-    echo "./nezha.sh uninstall_dashboard        - 卸载管理面板"
+    echo "./nezha-v0.sh                            - 显示管理菜单"
+    echo "./nezha-v0.sh install_dashboard          - 安装面板端"
+    echo "./nezha-v0.sh modify_dashboard_config    - 修改面板配置"
+    echo "./nezha-v0.sh start_dashboard            - 启动面板"
+    echo "./nezha-v0.sh stop_dashboard             - 停止面板"
+    echo "./nezha-v0.sh restart_and_update         - 重启并更新面板"
+    echo "./nezha-v0.sh show_dashboard_log         - 查看面板日志"
+    echo "./nezha-v0.sh uninstall_dashboard        - 卸载管理面板"
     echo "--------------------------------------------------------"
-    echo "./nezha.sh install_agent              - 安装监控Agent"
-    echo "./nezha.sh modify_agent_config        - 修改Agent配置"
-    echo "./nezha.sh show_agent_log             - 查看Agent日志"
-    echo "./nezha.sh uninstall_agent            - 卸载Agent"
-    echo "./nezha.sh restart_agent              - 重启Agent"
-    echo "./nezha.sh update_script              - 更新脚本"
+    echo "./nezha-v0.sh install_agent              - 安装监控Agent"
+    echo "./nezha-v0.sh modify_agent_config        - 修改Agent配置"
+    echo "./nezha-v0.sh show_agent_log             - 查看Agent日志"
+    echo "./nezha-v0.sh uninstall_agent            - 卸载Agent"
+    echo "./nezha-v0.sh restart_agent              - 重启Agent"
+    echo "./nezha-v0.sh update_script              - 更新脚本"
     echo "--------------------------------------------------------"
 }
 
