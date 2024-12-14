@@ -179,9 +179,9 @@ installation_check() {
 
 select_version() {
     if [ -z "$IS_DOCKER_NEZHA" ]; then
-        info "请自行选择您的安装方式（如果你是安装Agent，输入哪个都是一样的）："
+        info "请自行选择您的安装方式（如果你是安装Agent(小鸡探针)，输入哪个都是一样的）："
         info "1. Docker"
-        info "2. 独立安装"
+        info "2. 独立安装---建议使用此版本,稳定可靠不依赖Docker"
         while true; do
             printf "请输入选择 [1-2]："
             read -r option
