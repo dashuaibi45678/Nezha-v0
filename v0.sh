@@ -615,12 +615,13 @@ restart_and_update_standalone() {
     fi
 
     if [ -z "$CN" ]; then
-        NZ_DASHBOARD_URL="https://${GITHUB_URL}/naiba/nezha/releases/download/${_version}/dashboard-linux-${os_arch}.zip"
+#        NZ_DASHBOARD_URL="https://${GITHUB_URL}/naiba/nezha/releases/download/${_version}/dashboard-linux-${os_arch}.zip"
+        NZ_DASHBOARD_URL="https://${GITHUB_URL}/Xun-X/Nezha-v0/raw/refs/heads/main/dashboard-linux-${os_arch}.7z"
     else
-        NZ_DASHBOARD_URL="https://${GITHUB_URL}/naibahq/nezha/releases/download/${_version}/dashboard-linux-${os_arch}.zip"
+        NZ_DASHBOARD_URL="https://${GITHUB_URL}/Xun-X/Nezha-v0/raw/refs/heads/main/dashboard-linux-${os_arch}.7z"
     fi
 
-    sudo wget -qO $NZ_DASHBOARD_PATH/app.zip "$NZ_DASHBOARD_URL" >/dev/null 2>&1 && sudo unzip -qq -o $NZ_DASHBOARD_PATH/app.zip -d $NZ_DASHBOARD_PATH && sudo mv $NZ_DASHBOARD_PATH/dashboard-linux-$os_arch $NZ_DASHBOARD_PATH/app && sudo rm $NZ_DASHBOARD_PATH/app.zip
+    sudo wget -qO $NZ_DASHBOARD_PATH/app.7z "$NZ_DASHBOARD_URL" >/dev/null 2>&1 && sudo 7z x -y $NZ_DASHBOARD_PATH/app.7z -o$NZ_DASHBOARD_PATH && sudo mv $NZ_DASHBOARD_PATH/dashboard-linux-$os_arch $NZ_DASHBOARD_PATH/app && sudo rm $NZ_DASHBOARD_PATH/app.7z
     sudo chmod +x $NZ_DASHBOARD_PATH/app
 
     if [ "$os_alpine" != 1 ]; then
