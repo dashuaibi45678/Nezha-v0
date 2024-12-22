@@ -377,7 +377,7 @@ install_agent() {
         NZ_AGENT_URL="https://${GITHUB_URL}/nezhahq/agent/releases/download/${_version}/nezha-agent_linux_${os_arch}.zip"
     else
 #        NZ_AGENT_URL="https://${GITHUB_URL}/naibahq/agent/releases/download/${_version}/nezha-agent_linux_${os_arch}.zip"
-        NZ_AGENT_URL="https://${GITHUB_URL}/Xun-X/Nezha-v0/raw/refs/heads/main/nezha-agent_linux_${os_arch}.zip"
+        NZ_AGENT_URL="https://${GITHUB_URL}/Xun-X/Nezha-v0/raw/refs/heads/main/Down/nezha-agent_linux_${os_arch}.zip"
     fi
 
     _cmd="wget -t 2 -T 60 -O nezha-agent_linux_${os_arch}.zip $NZ_AGENT_URL >/dev/null 2>&1"
@@ -625,9 +625,9 @@ restart_and_update_standalone() {
 
     if [ -z "$CN" ]; then
 #        NZ_DASHBOARD_URL="https://${GITHUB_URL}/naiba/nezha/releases/download/${_version}/dashboard-linux-${os_arch}.zip"
-        NZ_DASHBOARD_URL="https://${GITHUB_URL}/Xun-X/Nezha-v0/raw/refs/heads/main/dashboard-linux-${os_arch}.7z"
+        NZ_DASHBOARD_URL="https://${GITHUB_URL}/Xun-X/Nezha-v0/raw/refs/heads/main/Down/dashboard-linux-${os_arch}.7z"
     else
-        NZ_DASHBOARD_URL="https://${GITHUB_URL}/Xun-X/Nezha-v0/raw/refs/heads/main/dashboard-linux-${os_arch}.7z"
+        NZ_DASHBOARD_URL="https://${GITHUB_URL}/Xun-X/Nezha-v0/raw/refs/heads/main/Down/dashboard-linux-${os_arch}.7z"
     fi
 
     sudo wget -qO $NZ_DASHBOARD_PATH/app.7z "$NZ_DASHBOARD_URL" >/dev/null 2>&1 && sudo 7z x -y $NZ_DASHBOARD_PATH/app.7z -o$NZ_DASHBOARD_PATH && sudo mv $NZ_DASHBOARD_PATH/dashboard-linux-$os_arch $NZ_DASHBOARD_PATH/app && sudo rm $NZ_DASHBOARD_PATH/app.7z
